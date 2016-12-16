@@ -31,7 +31,8 @@ class GenerateCmd < CmdParse::Command
     token = totp.now
     puts token
 
-    Open3.popen3 "xclip" do | stdin, stdout, stderr, wait |
+    x_selection = ENV["PASSWORD_STORE_X_SELECTION"] || 'clipboard'
+    Open3.popen3("xclip -selection #{x_selection}") do | stdin, stdout, stderr, wait |
       stdin.puts token.chomp
       stdin.close
     end
