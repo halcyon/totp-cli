@@ -2,13 +2,15 @@ totp-cli
 ========
 
 totp-cli is a simple command line application to generate OTP tokens for two
-factor authentication using [RFC6238](http://tools.ietf.org/html/rfc6238).  
+factor authentication using [RFC6238](http://tools.ietf.org/html/rfc6238).
 
 These are compatible with many popular services such as facebook, github,
 google, eve-online, etc.
 
 totp-cli fetches your shared key (aka: code) from [pass][pass], generates the
-token, outputs it to stdout and copies it to your PRIMARY X selection.
+token, outputs it to stdout and copies it to your CLIPBOARD X selection.
+Default X selection can be overidden with the `PASSWORD_STORE_X_SELECTION`
+environment variable.
 
 Shared keys should be stored in your pass storage under `2fa/SERVICE/code`,
 for example `2fa/github/code`. The add command can be used to add this less
